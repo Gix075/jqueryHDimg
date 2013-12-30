@@ -21,11 +21,27 @@ Once you have ready all images, then include jQuery and jqueryHDimg plugin in yo
 
 ### Javascript
 To use jqueryHDimg for all images in your page, simply add this lines in your document as javascript code
-
 ```javascript
 $(document).on('ready', function(){
   $('img').HDimg();
 });
 ```
 
-	
+You can use this plugin also for all images inside an element
+```javascript
+$(document).on('ready', function(){
+  $('#divID img').HDimg();
+});
+```
+or for one single image with specific ID
+```javascript
+$(document).on('ready', function(){
+  $('#imgID').HDimg();
+});
+```
+or for all images with a specific class
+```javascript
+$(document).on('ready', function(){
+  $('.imgClass').HDimg();
+});
+```
