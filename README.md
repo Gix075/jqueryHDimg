@@ -19,9 +19,7 @@ Once you have ready all images, then include jQuery and jqueryHDimg plugin in yo
 <script src="js/jquery.HDimg.min.js"></script>
 ```
 
-### HTML
-You don't need to do anything on you html markup, simply add the images as usual. 
-
+### Javascript
 To use jqueryHDimg for all images in your page, simply add this lines in your document as javascript code
 
 ```javascript
