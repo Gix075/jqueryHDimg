@@ -100,4 +100,7 @@ The option accept boolean value (true and false) or a string used as class name.
 By the option  **autoResize** it's possible to resize the image without any css rule.<br> 
 This option is available only if *imgReplacement* is turned on *true* value.<br>
             
-            
+
+Demo
+----
+See more usage example and documentation at <http://factory.brainleaf.eu/jqueryHDimg/>
