@@ -45,3 +45,10 @@ $(document).on('ready', function(){
   $('.imgClass').HDimg();
 });
 ```
+
+### CSS
+To have right sizes after image replacement you need to specify width and height with some css rules for each image.
+If you want, and use the default option **imgReplacement: true**, you can also use the plugin option **autoResize: true** (*See below options usage*) that resize larger image at the original sizes.
+
+Options
+-------
