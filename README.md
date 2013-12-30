@@ -62,3 +62,42 @@ The following list shows the plugin options with the default values
 #### imgReplacement
 *boolean* - accepdet values: **true/false** - default: **false**
 
+With **imgReplacement:true** the plugin works leaving the image unreplaced in case of common display and replacing it only if necessary.<br>
+This technique, in case of high density display, force the dom to load before the original image and then the double size one.<br>
+*Replacement allow you (if you want) to use the auto resizing of the images, without any css rule.*
+
+With **imgReplacement:false** we provide the <strong>Assignment</strong> technique, that works charging only the image that is needed for the current scenario and not before the original image (with bandwidth consuming) and then replacing it, if is needed by the high resolution display.<br>
+For this reason you must put the original img url on a *data attribute* and not inside *src attribute*.<br>
+The plugin executes a media query and then assigns the right image to the *src* attribute.<br>
+So, if you use this option with value false, remember that you must specify the image url as in the following example:
+```html
+<img src="" data-src="your/img/path/img-name.jpg" alt="image alt">
+```
+
+**WARNING**: if you choose the option *imgReplacement:false* instead the default *replace* technique, remember that this cause a W3C validation error for the empty "src" attribute.
+
+#### densityLevel
+*int* - accepdet values: **1.25 - 1.3 - 1.5 - 2** - default: **1.25**
+
+This option allow you to specify a particular density to start the image substitution.<br>
+The default value is *1.25* but you can specify alternative values such as *1.3* - *1.5* and *2*
+
+#### imgSuffix
+*string* - accepdet values: **any string** - default: **"@2x"**
+
+The default suffix for the double size image is **@2x** but you can customize this parameter with the option **imgSuffix**<br>
+You can use the suffix you want.
+
+#### addClass
+*string or boolean* - accepdet values: **true/false or any string** - default: **false**
+
+By the option **addClass** it's possible to add a particular class to the double size img<br>
+The option accept boolean value (true and false) or a string used as class name. If you use true value instead a class name, will be used the default class **hd-image**
+
+#### autoResize
+*boolean* - accepdet values: **true/false** - default: **false**
+
+By the option  **autoResize** it's possible to resize the image without any css rule.<br> 
+This option is available only if *imgReplacement* is turned on *true* value.<br>
+            
+            
