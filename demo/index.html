@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>jQuery HDimg</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
+		<link href="css/demo.css" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]>
+            <script src="js/polyfills/html5shiv.js"></script>
+            <script src="js/polyfills/respond.js"></script>
+            <script src="js/polyfills/matchmedia.polyfill.js"></script>
+        <![endif]-->
+	</head>
+	<body>
+        <header>
+            <span>jQueryHDimg&trade;</span>  <span><strong>1.1</strong></span> <span><strong><a href="#" title="download">Download</a></strong></span>
+        </header>  
+            <h1>
+                [ jQuery HDimg ] <br>
+                <small>jQuery plugin to serve double size images on Retina and other high resolution display</small>
+            </h1>
+            <p>
+                This plugin is usefull to auto load a double size image for high resolution displays.
+                Simply it search for an img with a particular (that you can choose) suffix to use in case of Retina or other high density displays.
+            </p>
+          
+        <section id="demo-section">
+            <h2>Demo</h2>
+            <p>
+                To see properly this plugin in action you need 2 different devices to see the difference between a common or high res display. 
+            </p>
+            <h3>Image Assigment Demo</h3>
+            <div id="demo">
+                <img data-src="img/image-01.jpg" src="" alt="Img1">
+                <img data-src="img/image-02.jpg" src="" alt="Img2">
+                <img data-src="img/image-03.jpg" src="" alt="Img3">
+            </div>
+            <h3>Image Replacement Demo</h3>
+            <div id="demo-replacement">
+                <img src="img/image-01.jpg" alt="Img1">
+                <img src="img/image-02.jpg" alt="Img2">
+                <img src="img/image-03.jpg" alt="Img3">
+            </div>
+        </section>
+        <section id="usage">
+            <h2>Basic Usage</h2>
+            <h3>#1 - Include jQuery and jQueryHDimg Plugin</h3>
+            <p>
+                To use <strong>jQueryHDimg</strong> first include jQuery library and plugin inside your document.<br>
+                Best pratic is better to include the files before the closure body tag (&lt;/body&gt;) but is also good inside the &lt;head&gt;
+            </p>   
+            <code>
+                ...<br>
+                &lt;script src="<em>your-libs-path</em>/jquery.min.js"&gt;&lt;/script&gt;<br>
+                &lt;script src="<em>your-plugin-path</em>/jquery.HDimg.js"&gt;&lt;/script&gt;<br>
+                &lt;/body&gt;
+            </code>
+            <h3>#2 - Generate images</h3>
+            <p>
+                The second thing to do is prepare all images you need to affect by the plugin.
+                Rename your original image as you want, then make the double image and rename it with a specific suffix as <em>@2x</em>.<br>
+                A sample of image renaming can be <strong>img-01.jpg</strong> for the original image and <strong>img-01@2x.jpg</strong> for high density display image.<br>
+                <strong>WARNING: both images must be placed on the same directory!</strong><br>
+                You can choose the suffix you want, but if you customize the suffix, you must declare it with the specific plugin option.<br>
+                <em><small>To learn more about custom suffix usage see the proper chapter below</small></em>.
+            </p> 
+            
+            <h3>#3 - HTML Markup</h3>
+            <p>
+                If you use the default options, you don't need to do anything in you html code, simply add the images as usual
+            </p>
+            <code>
+                &lt;img id="image1" src="img/img.jpg" alt="Image Title"&gt;
+            </code>
+            
+            <h3>#4 - CSS</h3>
+            <p>
+                To obtain a correct image substitution (both images, normal and double, with the same sizes), some css coding is needed.<br>
+                To do this you must assign an univoc ID to each image and use it for specify sizes by css rules.<br>
+                On the example above I used id="image1" so the css rule can be something like this:
+            </p>
+            <code>
+            #image1 {width: 100px; height: 100px;}
+            </code>
+            <p>
+                If you have more images with the same size, you can use a class instead many different ID.
+            </p>
+            
+            <h3>#5 - JAVASCRIPT</h3>
+            <p>
+                It's possible to use this plugin for a single image or for all images inside a dom element.<br>
+                On exsample below each image inside the div with attribute <strong>id="#retina"</strong> will be affected by the plugin.
+                
+            </p>
+            <code>
+            $("#retina img").HDimg();
+            </code>
+            <p>
+                On exsample below all images inside the document will be affected by the plugin.
+            </p>
+            <code>
+            $("img").HDimg();
+            </code>
+        </section>
+        
+        <section id="options">
+            <h2>Options & Advanced usage</h2>
+            <p>
+                This plugin haven't many option that make you crazy to use it.<br>
+                The dafault options are sufficient to make a great job, but if you need some different settings you can use the following custom options<br>
+            </p>
+            <h3>Options List</h3>
+            <div class="option-row">
+                
+                <table>
+                <tr>
+                    <td><h4>Option Name</h4></td>
+                    <td><h4>Option Allowed Values</h4></td>
+                </tr>
+                    
+                <tr>
+                    <td><strong><em>imgReplacement</em></strong></td>
+                    <td><em>boolean</em> - default: true - accepted: true/false</td>
+                </tr>
+                    
+                <tr>
+                    <td><strong><em>densityLevel</em></strong></td>
+                    <td><em>int</em> - default: 1.25 - accepted: 1.25 - 1.3 - 1.5 - 2</td>
+                </tr>  
+                    
+                <tr>
+                    <td><strong><em>imgSuffix</em></strong></td>
+                    <td><em>string</em> - default: "@2x" - accepted: any string you want</td>
+                </tr>    
+                    
+                <tr>
+                    <td><strong><em>autoResize</em></strong></td>
+                    <td><em>boolean</em> - default: false - accepted: false, true<br>This property works only if <em>imgReplacement</em> option has value <em>true</em></td>
+                </tr>   
+                    
+                <tr>
+                    <td><strong><em>addClass</em></strong></td>
+                    <td><em>boolean/string</em> - default: false - accepted: false, true and any string you want as class name.</td>
+                </tr>     
+                    
+                </table>
+            </div>
+            <h2>Image Replacement or Assignment?</h2>
+            This plugin works in two different ways: <strong>replacement</strong> and <strong>assignment</strong>.<br>
+            
+            <h3>Image Replacement</h3>
+            <p>
+            The default way is <strong>Replacement</strong> technique that works leaving the image unreplaced in case of common display and replacing it only if necessary.<br>
+            This technique, in case of high density display, force the dom to load before the original image and then the double size one.<br>
+            Replacement allow you (if you want) to use the auto resizing of the images, without any css rule. For do this use the option "autoResize: true" <em>(see below the usage)</em>.<br>
+            Replacement is the dafault technique so you don't need to specify it on plugin options
+            </p>
+            
+            <h3>Image Assignment</h3>
+            <p>
+            Because this plugin is thinked as "mobile first" we provide the <strong>Assignment</strong> technique, that works charging only the image that is needed for the current scenario and not before the original image (with bandwidth consuming) and then replacing it, if is needed by the high resolution display.<br>
+            For this reason you must put the original img url on a <em>data attribute</em> and not inside <em>src</em> attribute.<br>
+            The plugin executes a media query and then assigns the right image to the <em>src</em> attribute.<br>
+            This method needs the css size rules.<br>
+            
+            </p>
+            
+            <p>
+                If you use the image assigment (see below the difference) place inside the page all the img tags you need but leaving empty the <em>src</em> attribute, and specify the original (not duoble) image url with the data attribute <strong>data-src=""</strong>.<br>
+            </p>
+            <code>
+                &lt;img id="image1" data-src="img/img.jpg" src="" alt="Image Title"&gt;
+            </code>
+            <p>
+                <strong>WARNING</strong>: if you choose the <em>assignment</em> technique instead the default <em>replace</em> technique, remember that this cause a W3C validation error for the empty "src" attribute.
+            </p>
+            <p>    
+            Assigment technique must be declared with the option <strong>imgReplacement: false</strong>
+            </p>
+            <code>
+            $("#demo > img").HDimg({
+                imgReplacement: false 
+            });
+            </code>
+            
+            <h2>Display Density Level</h2>
+            <p>
+                This option allow you to specify a particular density to start the image sunstitution.<br>
+                The default value is <strong>1.25</strong> but you can specify alternative values such as <strong>1.3</strong> - <strong>1.5</strong> and <strong>2</strong><br>
+                See the example below:
+            </p>
+            <code>
+            $("#demo > img").HDimg({
+                densityLevel: 1.25 
+            });
+            </code>
+            
+            <h2>Suffix</h2>
+            <p>
+                The default suffix for the double size image is <strong>@2x</strong> 
+                but you can customize this parameter with the option <strong>imgSuffix</strong><br>
+                You can use the suffix you want.<br>
+                In the example below will be used the prefix <em>_double</em>. Using this prefix, the double size image must be renamed in this way: <em>imgname_double.jpg</em>
+            </p>
+            <code>
+            $("#demo > img").HDimg({
+                imgSuffix: "_double"
+            });
+            </code>
+            
+            <h2>Adding Class</h2>
+            <p>
+                By the option <strong>addClass</strong> it's possible to add a particular class to the double size img<br>
+                The option accept boolean value (true and false) or a string used as class name. If you use true value instead a class name, will be used the default class <strong>hd-image</strong><br>
+            </p>
+            <code>
+            $("#demo > img").HDimg({
+                addClass: "doubleImage"
+            });
+            </code>
+            
+            <h2>Auto Resize</h2>
+            <p>
+                By the option <strong>autoResize</strong> it's possible to resize the image without any css rule. 
+                This option is available only if <em>imgReplacement</em> is turned on <em>true</em> value.<br>
+                This option accept only boolean value (true and false). Default value is <strong>false</strong>.
+            </p>
+            <code>
+            $("#demo > img").HDimg({<br> 
+                imgReplacement: true,<br> 
+                autoResize: true<br>
+            });
+            </code>
+            
+            <h2>Old Explorer Caveat</h2>
+            <p>
+                To provide old ie version compatibility it's necessary to use two different polyfills:<br>
+                <a href="https://github.com/scottjehl/Respond" title="Respond.js" target="_blank"><strong># respond.js</strong></a><br>
+                <a href="https://github.com/paulirish/matchMedia.js/" title="Matchmedia Polyfill.js" target="_blank"><strong># matchmedia.polyfill.js</strong></a><br>
+            </p>
+            
+        </section>
+        
+        <footer>
+            jQueryHDimg&trade; version: 1.1 | &copy;2013 by Brainleaf Communication | <a href="http://www.brainleaf.eu" title="Brainleaf Site">www.brainleaf.eu</a> | Released under GNU/GPL license
+        </footer>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/libs/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/jquery.HDimg.min.js"></script>
+        
+		<script>
+			$(function() {
+				$("#demo > img").HDimg({
+					densityLevel: 1.25,
+                    imgReplacement: false,
+                    imgSuffix: "@2x",
+                    addClass: "double"
+				});
+			});
+            $(function() {
+				$("#demo-replacement > img").HDimg({
+					densityLevel: 1.25,
+                    imgReplacement: true,
+                    imgSuffix: "@2x",
+                    addClass: true,
+                    autoResize: true
+				});
+			});
+		</script>
+        
+        
+	</body>
+</html>
