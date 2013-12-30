@@ -52,3 +52,13 @@ If you want, and use the default option **imgReplacement: true**, you can also u
 
 Options
 -------
+The following list shows the plugin options with the default values
+* imgReplacement: true
+* densityLevel: 1.25
+* imgSuffix: "@2x"
+* addClass: false
+* autoResize: false
+
+#### imgReplacement
+*boolean* - accepdet values: **true/false** - default: **false**
+
