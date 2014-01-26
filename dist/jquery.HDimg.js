@@ -1,6 +1,18 @@
 /*!
- * jQueryHDimg Plugin 
- * Version 1.1 | date: 30/12/2013
+ *
+ *  jQueryHDimg - [v1.1.1]
+ *  a small plugin to serve double size image for Retina and other HD displays
+ *  webPage: http://factory.brainleaf.eu/jqueryHDimg
+ *  githubPage: https://github.com/Gix075/jqueryHDimg
+ *
+ *  (c)2014 by BRAINLEAF Communication
+ *  Made by Gildo Giuliani
+ *  Released under MIT License
+ *  Date: 25/01/2014
+ *
+ *  Please, report any bugs at: https://github.com/Gix075/jqueryHDimg/issues
+ *
+
 */
 
 ;(function ( $, window, document, undefined ) {
@@ -29,23 +41,23 @@
 				        switch (this.settings.densityLevel) {
                             case 1.25 :
                                 var medQuery = '(-webkit-min-device-pixel-ratio: 1.25),\
-                                                (min-resolution: 120dpi)';
+                                                (min-resolution: 1.25dppx)';
                                 break;
                                 
                             case 1.3 :
                                 var medQuery = '(-webkit-min-device-pixel-ratio: 1.3),\
-                                                (min-resolution: 124.8dpi)';
+                                                (min-resolution: 1.3dppx)';
                                 break;
                                 
                             case 1.5 :
                                 var medQuery = '(-webkit-min-device-pixel-ratio: 1.5),\
-                                                (min-resolution: 144dpi)';
+                                                (min-resolution: 1.5dppx)';
                                 break;
                                 
                             case 2 :
                                 var medQuery = '(-webkit-min-device-pixel-ratio: 2),\
-                                                (min-resolution: 192dpi)';
-                                break;
+                                                (min-resolution: 2dppx)';
+                                break;  
                         }
                     
 				        var highDensity = false;
@@ -53,7 +65,7 @@
                             var highDensity = true;
                         }
                     
-                        //var highDensity = true;
+                        //highDensity = true;
                         this.imgSubst(this.element, this.settings, highDensity);
 				
                 },
@@ -88,12 +100,23 @@
                         return;
                     }
                     else if (replacement == true && highDensity == true) {
+                       
+                        if (autoResize == true) {
+                            var elmsArr = [];
+                            elmsArr.push(element);
+                            $.each( elmsArr, function() {
+                                $(element).width($(element).width());
+                                $(element).height($(element).height());
+                            });
+                        }
+                        
                         $(element).attr('src',imgNewUrl);
                         
+                        /*
                         if (autoResize == true) {
                             $(element).width($(element).width());
                             $(element).height($(element).height());
-                        }
+                        }*/
                         
                         if (addClass !== false && addClass !== true) {
                             $(element).addClass(addClass);

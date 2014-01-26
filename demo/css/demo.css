@@ -1,3 +1,20 @@
+/*!
+ *
+ *  jQueryHDimg - [v1.1.1]
+ *  a small plugin to serve double size image for Retina and other HD displays
+ *  webPage: http://factory.brainleaf.eu/jqueryHDimg
+ *  githubPage: https://github.com/Gix075/jqueryHDimg
+ *
+ *  (c)2014 by BRAINLEAF Communication
+ *  Made by Gildo Giuliani
+ *  Released under MIT License
+ *  Date: 25/01/2014
+ *
+ *  Please, report any bugs at: https://github.com/Gix075/jqueryHDimg/issues
+ *
+
+*/
+
 body {
     width: 90%;
     max-width: 1600px;
@@ -56,7 +73,8 @@ h2 {
     font-weight: 700;
     color:#128EDB;
 }
-#demo img{
+#demo img,
+#demo-replacement img {
     width: 100px;
     height: 100px;
 }
