@@ -1,4 +1,4 @@
-jQueryHDimg (1.1.1)
+jQueryHDimg (1.1.2)
 ===========
 
 jQuery plugin to serve double size images for hd displays
