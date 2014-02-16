@@ -1,6 +1,6 @@
 /*!
  *
- *  jQueryHDimg - [v1.1.1]
+ *  jQueryHDimg - [v1.1.2]
  *  a small plugin to serve double size image for Retina and other HD displays
  *  webPage: http://factory.brainleaf.eu/jqueryHDimg
  *  githubPage: https://github.com/Gix075/jqueryHDimg
@@ -8,13 +8,12 @@
  *  (c)2014 by BRAINLEAF Communication
  *  Made by Gildo Giuliani
  *  Released under MIT License
- *  Date: 25/01/2014
+ *  Date: 16/02/2014
  *
  *  Please, report any bugs at: https://github.com/Gix075/jqueryHDimg/issues
  *
 
 */
-
 ;(function ( $, window, document, undefined ) {
 
 		var pluginName = "HDimg",
@@ -23,7 +22,8 @@
                 imgReplacement: true,
                 imgSuffix: "@2x",
                 addClass: false,
-                autoResize: false
+                autoResize: false,
+                devForce: false    
 		};
     
 		function Plugin ( element, options ) {
@@ -65,7 +65,10 @@
                             var highDensity = true;
                         }
                     
-                        //highDensity = true;
+                        if (this.settings.devForce == true){
+                            highDensity = true;
+                        }  
+                    
                         this.imgSubst(this.element, this.settings, highDensity);
 				
                 },

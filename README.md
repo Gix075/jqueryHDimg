@@ -3,6 +3,9 @@ jQueryHDimg (1.1.1)
 
 jQuery plugin to serve double size images for hd displays
 
+Last Update
+-------------
+Added (on version 1.1.2) **devForce** plugin option. See more about this options on relative chapter!
 
 Simple Usage
 -------------
@@ -58,6 +61,7 @@ The following list shows the plugin options with the default values
 * imgSuffix: "@2x"
 * addClass: false
 * autoResize: false
+* devForce: false
 
 #### imgReplacement
 *boolean* - accepdet values: **true/false** - default: **false**
@@ -99,7 +103,11 @@ The option accept boolean value (true and false) or a string used as class name.
 
 By the option  **autoResize** it's possible to resize the image without any css rule.<br> 
 This option is available only if *imgReplacement* is turned on *true* value.<br>
-            
+
+#### devForce
+*boolean* - accepdet values: **true/false** - default: **false**
+
+By the option **devForce** it's possible to force plugin to load 2x image also on non hd displays.
 
 Demo
 ----

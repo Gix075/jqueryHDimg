@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <!-- jQueryHDimg - [v1.1.1] - DemoPage -->
+        <!-- jQueryHDimg - [v1.1.2] - DemoPage -->
         <meta charset="utf-8">
 		<title>jQuery HDimg</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 	</head>
 	<body>
         <header>
-            <span>jQueryHDimg&trade;</span>  <span><strong>1.1.1</strong></span> <span><strong><a href="https://github.com/Gix075/jqueryHDimg" title="download" target="_blank">Download</a></strong></span>
+            <span>jQueryHDimg&trade;</span>  <span><strong>1.1.2</strong></span> <span><strong><a href="https://github.com/Gix075/jqueryHDimg" title="download" target="_blank">Download</a></strong></span>
         </header>  
             <h1>
                 [ jQuery HDimg ] <br>
@@ -143,7 +143,12 @@
                 <tr>
                     <td><strong><em>addClass</em></strong></td>
                     <td><em>boolean/string</em> - default: false - accepted: false, true and any string you want as class name.</td>
-                </tr>     
+                </tr> 
+                
+                <tr>
+                    <td><strong><em>devForce</em></strong></td>
+                    <td><em>boolean</em> - default: false - accepted: false/true <em>(option added from version 1.1.2)</em></td>
+                </tr> 
                     
                 </table>
             </div>
@@ -234,6 +239,27 @@
             });
             </code>
             
+            <h2>DevForce</h2>
+            <p>
+                <em>Option added from <strong>version 1.1.2</strong></em><br><br>
+                By the option <strong>devForce</strong> it's possible to force the plugin to switch images to hd version. <br>
+                This option is useful during site developing to see how your site appears once the images are changed by plugin.
+                <br>
+                This option accept only boolean value (true and false). Default value is <strong>false</strong>.
+            </p>
+            <code>
+            $("#demo > img").HDimg({<br>  
+                devForce: true<br>
+            });
+            </code>
+            <h3>devForce Demo</h3>
+            <p>As you can see, the following 3 images are loaded as 2x also in non hd displays</p>
+            <div id="demo-devforce">
+                <img src="img/image-01.jpg" alt="Img1">
+                <img src="img/image-02.jpg" alt="Img2">
+                <img src="img/image-03.jpg" alt="Img3">
+            </div>
+            
             <h2>Old Explorer Caveat</h2>
             <p>
                 To provide old ie version compatibility it's necessary to use two different polyfills:<br>
@@ -244,7 +270,7 @@
         </section>
         
         <footer>
-            jQueryHDimg&trade; version: 1.1.1 | &copy;2013 by Brainleaf Communication | <a href="http://www.brainleaf.eu" title="Brainleaf Site">www.brainleaf.eu</a> | Released under GNU/GPL license
+            jQueryHDimg&trade; version: 1.1.2 | &copy;2013 by Brainleaf Communication | <a href="http://www.brainleaf.eu" title="Brainleaf Site">www.brainleaf.eu</a> | Released under GNU/GPL license
         </footer>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -266,11 +292,35 @@
                     imgReplacement: true,
                     imgSuffix: "@2x",
                     addClass: true,
-                    autoResize: true
+                    autoResize: true,
+                    devForce: false
 				});
 			});
+            $(function() {
+				$("#demo-devforce > img").HDimg({
+					densityLevel: 1.25,
+                    imgReplacement: true,
+                    imgSuffix: "@2x",
+                    addClass: true,
+                    autoResize: true,
+                    devForce: true
+				});
+			});
+            
+            
 		</script>
         
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-47727083-1', 'brainleaf.eu');
+          ga('send', 'pageview');
+        
+        </script>
         
 	</body>
 </html>
