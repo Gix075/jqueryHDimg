@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <!-- jQueryHDimg - [v1.1.2] - DemoPage -->
+        <!-- jQueryHDimg - [v1.1.3] - DemoPage -->
         <meta charset="utf-8">
 		<title>jQuery HDimg</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 	</head>
 	<body>
         <header>
-            <span>jQueryHDimg&trade;</span>  <span><strong>1.1.2</strong></span> <span><strong><a href="https://github.com/Gix075/jqueryHDimg" title="download" target="_blank">Download</a></strong></span>
+            <span>jQueryHDimg&trade;</span>  <span><strong>1.1.3</strong></span> <span><strong><a href="https://github.com/Gix075/jqueryHDimg" title="download" target="_blank">Download</a></strong></span>
         </header>  
             <h1>
                 [ jQuery HDimg ] <br>
@@ -33,9 +33,9 @@
             </p>
             <h3>Image Assigment Demo</h3>
             <div id="demo">
-                <img data-src="img/image-01.jpg" src="" alt="Img1">
-                <img data-src="img/image-02.jpg" src="" alt="Img2">
-                <img data-src="img/image-03.jpg" src="" alt="Img3">
+                <img data-src="img/image-01.jpg" alt="Img1">
+                <img data-src="img/image-02.jpg" alt="Img2">
+                <img data-src="img/image-03.jpg" alt="Img3">
             </div>
             <h3>Image Replacement Demo</h3>
             <div id="demo-replacement">
@@ -122,8 +122,13 @@
                     
                 <tr>
                     <td><strong><em>imgReplacement</em></strong></td>
-                    <td><em>boolean</em> - default: true - accepted: true/false</td>
+                    <td><em>boolean</em> - default: true - accepted: true/false <em>(option added from version 1.1.3)</em></td>
                 </tr>
+                
+                <tr>
+                    <td><strong><em>imgAssignment</em></strong></td>
+                    <td><em>boolean</em> - default: false - accepted: true/false</td>
+                </tr>    
                     
                 <tr>
                     <td><strong><em>densityLevel</em></strong></td>
@@ -182,12 +187,20 @@
                 <strong>WARNING</strong>: if you choose the <em>assignment</em> technique instead the default <em>replace</em> technique, remember that this cause a W3C validation error for the empty "src" attribute.
             </p>
             <p>    
-            Assigment technique must be declared with the option <strong>imgReplacement: false</strong>
+            Assigment technique can be declared with the option <strong>imgAssignment: true</strong> or with the option <strong>imgReplacement: false</strong>
             </p>
             <code>
             $("#demo > img").HDimg({
+                imgAssignment: true 
+            });<br>
+            <br>
+                is equivalent of
+            <br>
+            <br>
+            $("#demo > img").HDimg({
                 imgReplacement: false 
             });
+                
             </code>
             
             <h2>Display Density Level</h2>
@@ -270,18 +283,18 @@
         </section>
         
         <footer>
-            jQueryHDimg&trade; version: 1.1.2 | &copy;2013 by Brainleaf Communication | <a href="http://www.brainleaf.eu" title="Brainleaf Site">www.brainleaf.eu</a> | Released under GNU/GPL license
+            jQueryHDimg&trade; version: 1.1.3 | &copy;2013 by Brainleaf Communication | <a href="http://www.brainleaf.eu" title="Brainleaf Site">www.brainleaf.eu</a> | Released under GNU/GPL license
         </footer>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/jquery.HDimg.min.js"></script>
+        <script src="js/jquery.HDimg.js"></script>
         
 		<script>
 			$(function() {
 				$("#demo > img").HDimg({
 					densityLevel: 1.25,
-                    imgReplacement: false,
+                    imgAssignment: true,
                     imgSuffix: "@2x",
                     addClass: "double"
 				});

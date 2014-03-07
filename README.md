@@ -3,8 +3,9 @@ jQueryHDimg (1.1.2)
 
 jQuery plugin to serve double size images for hd displays
 
-Last Update
+Last Updates
 -------------
+Added (on version 1.1.3) **imgAssigment** plugin option. See more about this options on relative chapter!<br>
 Added (on version 1.1.2) **devForce** plugin option. See more about this options on relative chapter!
 
 Simple Usage
@@ -57,6 +58,7 @@ Options
 -------
 The following list shows the plugin options with the default values
 * imgReplacement: true
+* imgAssignment: false
 * densityLevel: 1.25
 * imgSuffix: "@2x"
 * addClass: false
@@ -78,7 +80,13 @@ So, if you use this option with value false, remember that you must specify the 
 <img src="" data-src="your/img/path/img-name.jpg" alt="image alt">
 ```
 
-**WARNING**: if you choose the option *imgReplacement:false* instead the default *replace* technique, remember that this cause a W3C validation error for the empty "src" attribute.
+#### imgAssigment (from v.1.1.3)
+With **imgAssignment:true** you can activate the *assignment* (see above about this) technique as the same of **imgReplacement:false**<br>
+With this option active you must use the following markup for your images:<br>
+```html
+<img src="" data-src="your/img/path/img-name.jpg" alt="image alt">
+```
+**WARNING**: if you choose the option *imgReplacement:false* or **imgAssignment:true** instead the default *replace* technique, remember that this cause a W3C validation error for the empty "src" attribute.
 
 #### densityLevel
 *int* - accepdet values: **1.25 - 1.3 - 1.5 - 2** - default: **1.25**
@@ -104,7 +112,7 @@ The option accept boolean value (true and false) or a string used as class name.
 By the option  **autoResize** it's possible to resize the image without any css rule.<br> 
 This option is available only if *imgReplacement* is turned on *true* value.<br>
 
-#### devForce
+#### devForce (from v.1.1.2)
 *boolean* - accepdet values: **true/false** - default: **false**
 
 By the option **devForce** it's possible to force plugin to load 2x image also on non hd displays.
